@@ -1,17 +1,17 @@
-# persona
+# Prompt Injection
 This repository contains the official code for the paper: "Prompt Injection: Parameterization of Fixed Inputs"
 
 ## How to use
 
 ### PersonaChat
 
-Data source
+#### Data source
 ```
 cd $DATA_DIR
 wget https://s3.amazonaws.com/datasets.huggingface.co/personachat/personachat_self_original.json
 ```
 
-Preprocessing
+#### Preprocessing
 ```
 cd $REPO_DIR/scripts
 python extract_persosna_chat_json.py $DATA_DIR/personachat_self_original.json train $OUTPUT_DIR/personachat_self_original_train.jsonl
@@ -21,19 +21,6 @@ python format_persona_chat_utterances.py $DATA_DIR/personachat_benchmark_100.jso
 
 python format_persona_chat_utterances_for_fid.py $OUTPUT_DIR/personachat_self_original_train.jsonl $OUTPUT_DIR/personachat_self_original_train_formatted_for_fid.jsonl
 python format_persona_chat_utterances_for_fid.py $DATA_DIR/personachat_benchmark_100.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_for_fid.jsonl
-```
-
-Preprocessing (long prefix)
-```
-python make_multiple_persona.py $DATA_DIR/personas.csv $DATA_DIR/personachat_benchmark_100.jsonl $OUTPUT_DIR
-
-python format_persona_chat_utterances.py $OUTPUT_DIR/benchmark_persona_chat_10personas.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_10personas.jsonl --max-history 2 --tag
-python format_persona_chat_utterances.py $OUTPUT_DIR/benchmark_persona_chat_25personas.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_25personas.jsonl --max-history 2 --tag
-python format_persona_chat_utterances.py $OUTPUT_DIR/benchmark_persona_chat_50personas.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_50personas.jsonl --max-history 2 --tag
-
-python format_persona_chat_utterances_for_fid.py $OUTPUT_DIR/benchmark_persona_chat_10personas.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_10personas_for_fid.jsonl --long-prefix
-python format_persona_chat_utterances_for_fid.py $OUTPUT_DIR/benchmark_persona_chat_25personas.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_25personas_for_fid.jsonl --long-prefix
-python format_persona_chat_utterances_for_fid.py $OUTPUT_DIR/benchmark_persona_chat_50personas.jsonl $OUTPUT_DIR/benchmark_persona_chat_formatted_50personas_for_fid.jsonl --long-prefix
 ```
 
 #### Lower-bound (student)
@@ -117,9 +104,9 @@ python main.py \
   --name $RUN_NAME
 ```
 
-#### Language modeling
+#### Prompt Injection Method: Continued Pre-training
 
-Main training command (language modeling)
+Main training command:
 ```
 cd $REPO_DIR
 python main.py \
@@ -134,9 +121,9 @@ python main.py \
   --name $RUN_NAME
 ```
 
-#### Distillation (with input generation)
+#### Prompt Injection Method: Pseudo-INput Generation (PING)
 
-Training input-generator
+Training input-generator:
 ```
 cd $REPO_DIR/scripts
 python run_seq2seq_input_generator.py \
