@@ -1,5 +1,5 @@
 # Prompt Injection
-This repository contains the official code for the paper: "Prompt Injection: Parameterization of Fixed Inputs"
+This repository contains the official code for the paper: "[Prompt Injection: Parameterization of Fixed Inputs](https://arxiv.org/abs/2206.11349)"
 
 ## How to use
 
