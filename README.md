@@ -40,7 +40,7 @@ python run_seq2seq_student.py \
   --per_device_train_batch_size 16 \
   --per_device_eval_batch_size 16 \
   --learning_rate 1e-4 \
-  --num_train_epochs 1 \
+  --num_train_epochs 2 \
   --max_seq_length 384 \
   --doc_stride 128 \
   --eval_accumulation_steps 20 \
@@ -80,7 +80,7 @@ python run_seq2seq_teacher.py \
   --per_device_train_batch_size 16 \
   --per_device_eval_batch_size 16 \
   --learning_rate 1e-4 \
-  --num_train_epochs 1 \
+  --num_train_epochs 2 \
   --max_seq_length 384 \
   --doc_stride 128 \
   --eval_accumulation_steps 20 \
@@ -114,8 +114,7 @@ python main.py \
   --dataset personachat \
   --valid-path $OUTPUT_DIR/benchmark_persona_chat_formatted.jsonl \
   --model-path $OUTPUT_DIR/$CHAT_STUDENT_DIR \
-  --num-steps 1000 \
-  --valid-every-steps 100 \
+  --num-steps 5 \
   --print-valid-results \
   --chat \
   --name $RUN_NAME
@@ -159,7 +158,7 @@ python main.py \
   --model-path $OUTPUT_DIR/$CHAT_STUDENT_DIR \
   --teacher-path $OUTPUT_DIR/$CHAT_TEACHER_DIR \
   --input-generator-path $OUTPUT_DIR/$CHAT_INPUT_GENERATOR_DIR \
-  --num-steps 1000 \
+  --num-steps 100 \
   --valid-every-steps 100 \
   --print-valid-results \
   --chat \
