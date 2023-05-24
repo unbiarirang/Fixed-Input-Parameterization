@@ -1,5 +1,5 @@
-# Prompt Injection
-This repository contains the official code for the paper: "[Prompt Injection: Parameterization of Fixed Inputs](https://arxiv.org/abs/2206.11349)"
+# Fixed Input Parameterization for Efficient Prompting <br/>(ACL 2023 Findings)
+This repository contains the official code for the paper: "[Fixed Input Parameterization for Efficient Prompting](https://arxiv.org/abs/2206.11349)"
 
 ## How to use
 
